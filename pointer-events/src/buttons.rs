@@ -21,6 +21,8 @@ pub enum PointerButton {
     PenEraser,
     /// Other mouse button. This isn't fleshed out yet.
     Other,
+    // If adding a new variant here, also update the `button_bit` and
+    // `fmt::Debug for PointerButtons` below.
 }
 
 /// A set of [`PointerButton`]s.
@@ -113,6 +115,9 @@ impl core::fmt::Debug for PointerButtons {
         }
         if self.contains(PointerButton::X2) {
             tuple.field(&"X2");
+        }
+        if self.contains(PointerButton::PenEraser) {
+            tuple.field(&"PenEraser");
         }
         if self.contains(PointerButton::Other) {
             tuple.field(&"Other");
