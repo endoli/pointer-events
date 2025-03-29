@@ -78,9 +78,6 @@ pub enum PointerEventType {
 }
 
 /// The type of device that has generated a pointer event.
-// TODO: Instead of non_exhaustive, could have an `Other(String)` variant.
-// This would correspond to the vendor-prefixed name discussed in the
-// pointer events specification.
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
 #[expect(missing_docs, reason = "fill in later")]
