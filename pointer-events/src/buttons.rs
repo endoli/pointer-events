@@ -34,10 +34,10 @@ fn button_bit(button: PointerButton) -> u8 {
         PointerButton::Secondary => 0b10,
         PointerButton::Auxiliary => 0b100,
         PointerButton::X1 => 0b1000,
-        PointerButton::X2 => 0b10000,
-        PointerButton::PenEraser => 32,
+        PointerButton::X2 => 0b1_0000,
+        PointerButton::PenEraser => 0b10_0000,
         // TODO: When we properly do `Other`, this changes
-        PointerButton::Other => 0b1000000,
+        PointerButton::Other => 0b100_0000,
     }
 }
 
