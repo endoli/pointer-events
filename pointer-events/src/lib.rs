@@ -31,29 +31,6 @@ pub use buttons::{PointerButton, PointerButtons};
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct PointerId(i64);
 
-// TODO: `f64` seems rather extreme. Can it be smaller?
-// TODO: Would be nice to use `dpi::LogicalSize`, but that is not `no_std`
-/// The size of the bounding box of an input, usually touch.
-///
-/// If this is not provided by the underlying API, platform, or device,
-/// then it will default to a single pixel.
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ContactGeometry {
-    /// The width of the contact geometry.
-    pub width: f64,
-    /// The height of the contact geometry.
-    pub height: f64,
-}
-
-impl Default for ContactGeometry {
-    fn default() -> Self {
-        Self {
-            width: 1.0,
-            height: 1.0,
-        }
-    }
-}
-
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 #[expect(missing_docs, reason = "fill in later")]
