@@ -18,16 +18,11 @@
 #![cfg_attr(docsrs, feature(doc_auto_cfg))]
 #![cfg_attr(all(not(feature = "std"), not(test)), no_std)]
 
-// TODO: We could use the `dpi` crate to distinguish between logical and physical positions
-// and sizes, but it isn't yet `no_std` compatible.
-
 mod buttons;
 
 pub use buttons::{PointerButton, PointerButtons};
 
 /// A unique identifier for the pointing device.
-// TODO: Is this actually available on all platforms, or should
-// we do what browsers do and generate something on our own?
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct PointerId(i64);
 
