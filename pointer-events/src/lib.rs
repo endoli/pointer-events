@@ -41,12 +41,6 @@ pub enum PointerEventType {
     PointerLeave,
     GotPointerCapture,
     LostPointerCapture,
-    /// TODO: This is from UI Events and may not belong here.
-    AuxClick,
-    /// TODO: This is from UI Events and may not belong here.
-    Click,
-    /// TODO: This is from UI Events and may not belong here.
-    ContextMenu,
 }
 
 /// The type of device that has generated a pointer event.
