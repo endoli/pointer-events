@@ -16,7 +16,44 @@
 #![cfg_attr(target_pointer_width = "64", warn(clippy::trivially_copy_pass_by_ref))]
 // END LINEBENDER LINT SET
 #![cfg_attr(docsrs, feature(doc_auto_cfg))]
-#![cfg_attr(all(not(feature = "std"), not(test)), no_std)]
+#![no_std]
+
+mod buttons;
+
+pub use buttons::{PointerButton, PointerButtons};
+
+/// A unique identifier for the pointing device.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct PointerId(i64);
+
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+#[expect(missing_docs, reason = "fill in later")]
+pub enum PointerEventType {
+    PointerOver,
+    PointerEnter,
+    PointerDown,
+    PointerMove,
+    PointerRawUpdate,
+    PointerUp,
+    PointerCancel,
+    PointerOut,
+    PointerLeave,
+    GotPointerCapture,
+    LostPointerCapture,
+}
+
+/// The type of device that has generated a pointer event.
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
+#[expect(missing_docs, reason = "fill in later")]
+pub enum PointerType {
+    #[default]
+    Unknown,
+    Mouse,
+    Pen,
+    Touch,
+}
 
 #[cfg(test)]
 mod tests {
